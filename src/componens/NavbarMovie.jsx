@@ -6,8 +6,12 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 
 function NavbarMovie() {
   return (
-    <>
-      <Navbar key="sm" expand="sm" className="bg-body-transparent mb-3">
+    <div className="position-relative d-flex justify-content-center">
+      <Navbar
+        key="sm"
+        expand="sm"
+        className="bg-body-transparent mb-3 position-absolute z-1 d-flex w-100"
+      >
         <Container fluid>
           <Navbar.Brand href="#" className="fs-1 fw-bolder text-danger ms-3">
             Movielist
@@ -27,9 +31,10 @@ function NavbarMovie() {
               <Form className="d-flex w-50 ms-5">
                 <Form.Control
                   type="search"
-                  placeholder="What do you want to watch ? "
-                  className="ms-5 px-4 rounded-pill"
+                  placeholder="What do you want to watch ?"
+                  className="ms-5 px-4 rounded-pill bg-transparent"
                   aria-label="Search"
+                  style={{ "::placeholder": { color: "white" } }}
                 />
               </Form>
               <Form className="d-flex gap-3">
@@ -44,7 +49,7 @@ function NavbarMovie() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 }
 
