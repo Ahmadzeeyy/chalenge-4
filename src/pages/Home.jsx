@@ -1,5 +1,10 @@
-const Home = () => {
-  return <div>this home</div>;
-};
+import SwiperTest from "../componens/Swipertest";
 
-export default Home;
+
+function Home() {
+  return (
+    <SwiperTest />
+  )
+}
+
+export default Home
