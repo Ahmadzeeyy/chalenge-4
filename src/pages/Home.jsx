@@ -16,7 +16,7 @@ function Home({ popularMovie }) {
         const response = await axios.get(
           `${
             import.meta.env.VITE_API_URL
-          }/3/movie/now_playing?language=en-US&page=1`,
+          }/3/movie/now_playing?language=en-US&page=2`,
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,

@@ -7,8 +7,11 @@
   opacity: 1 !important;
   color: #ffff !important;
   cursor: text !important;
-  mix-blend-mode : lighten;
+  mix-blend-mode: lighten;
 }
 .placeholder:hover {
   border: 2px solid white;
+}
+.swiper-container {
+  margin-bottom: 10rem;
 }

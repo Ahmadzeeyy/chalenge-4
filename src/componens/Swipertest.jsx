@@ -30,7 +30,7 @@ function SwiperTest({ data }) {
     },
   };
   return (
-    <Container className="mt-5">
+    <Container className="my-5 swiper-container">
       <h2 className="fw-bold mb-4">Popular Movie</h2>
       <Swiper
         slidesPerView={1}
@@ -64,7 +64,7 @@ function SwiperTest({ data }) {
             <MovieItem
               title={item.title}
               overview={item.overview}
-              imageURL={import.meta.env.VITE_API_IMAGE_URL + item.backdrop_path}
+              imageURL={import.meta.env.VITE_API_IMAGE_URL + item.poster_path}
               id={item.id}
             ></MovieItem>
           </SwiperSlide>

@@ -7,7 +7,7 @@ import { Image } from "react-bootstrap";
 function Slider({ data }) {
   const [slideItem, setSlideItem] = useState([]);
   useEffect(() => {
-    setSlideItem(data.slice(0, 3));
+    setSlideItem(data.slice(11, 14));
   }, []);
   return (
     <Carousel className="mb-5" controls={false}>
