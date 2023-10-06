@@ -1,13 +1,17 @@
+/* eslint-disable react/prop-types */
+import MovieItem from "./MovieItem";
+
+// Import Swiper module
 import { Pagination } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 // Import Swiper styles
 import "swiper/css";
 import "swiper/css/pagination";
+import { Container } from "react-bootstrap";
 
-// Import Swiper styles
-import { Button, Card } from "react-bootstrap";
-
-const SwiperTest = () => {
+function SwiperTest({ data }) {
+  // eslint-disable-next-line no-unused-vars
+  const dislayed = data.slice(5, 20);
   const breakpoints = {
     // Ukuran layar kurang dari 576px
     576: {
@@ -26,7 +30,7 @@ const SwiperTest = () => {
     },
   };
   return (
-    <section className="mt-5">
+    <Container className="mt-5">
       <h2 className="fw-bold mb-4">Popular Movie</h2>
       <Swiper
         slidesPerView={1}
@@ -55,168 +59,18 @@ const SwiperTest = () => {
         modules={[Pagination]}
         className="mySwiper"
       >
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
-        <SwiperSlide>
-          <Card style={{ width: "18rem" }}>
-            <Card.Img
-              variant="top"
-              src="https://image.tmdb.org/t/p/original/1E5baAaEse26fej7uHcjOgEE2t2.jpg"
-            />
-            <Card.Body>
-              <Card.Title>Card Title</Card.Title>
-              <Card.Text>
-                Some quick example text to build on the card title and make up
-                the bulk of the content.
-              </Card.Text>
-              <Button variant="primary">Go somewhere</Button>
-            </Card.Body>
-          </Card>
-        </SwiperSlide>
+        {dislayed.map((item) => (
+          <SwiperSlide key={item.id}>
+            <MovieItem
+              title={item.title}
+              overview={item.overview}
+              imageURL={import.meta.env.VITE_API_IMAGE_URL + item.backdrop_path}
+              id={item.id}
+            ></MovieItem>
+          </SwiperSlide>
+        ))}
       </Swiper>
-    </section>
+    </Container>
   );
-};
+}
 export default SwiperTest;

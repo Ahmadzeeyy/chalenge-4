@@ -1,32 +1,32 @@
+/* eslint-disable react/prop-types */
 import Carousel from "react-bootstrap/Carousel";
-import ExampleCarouselImage from "./ExampleCarouselImage";
+import { useEffect, useState } from "react";
+import { Image } from "react-bootstrap";
 
-function Slider() {
+// eslint-disable-next-line react/prop-types
+function Slider({ data }) {
+  const [slideItem, setSlideItem] = useState([]);
+  useEffect(() => {
+    setSlideItem(data.slice(0, 3));
+  }, []);
   return (
-    <Carousel className="mb-5">
-      <Carousel.Item interval={1000}>
-        <ExampleCarouselImage text="First slide" />
-        <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item interval={500}>
-        <ExampleCarouselImage text="Second slide" />
-        <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <ExampleCarouselImage text="Third slide" />
-        <Carousel.Caption>
-          <h3>Third slide label</h3>
-          <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
-          </p>
-        </Carousel.Caption>
-      </Carousel.Item>
+    <Carousel className="mb-5" controls={false}>
+      {slideItem.map((item) => (
+        <Carousel.Item key={item.id} interval={1500}>
+          <Image
+            src={import.meta.env.VITE_API_IMAGE_URL + item.backdrop_path}
+            text="First slide"
+            className="object-fit-cover w-100"
+            style={{
+              height: "98vh",
+            }}
+          />
+          <Carousel.Caption>
+            <h3>First slide label</h3>
+            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          </Carousel.Caption>
+        </Carousel.Item>
+      ))}
     </Carousel>
   );
 }

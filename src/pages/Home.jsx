@@ -1,20 +1,22 @@
+/* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
+import Slider from "../componens/Silder";
 import SwiperTest from "../componens/Swipertest";
 import axios from "axios";
 
-function Home() {
-  const [popularMovie, setPopularMovie] = useState([]);
+function Home({ popularMovie }) {
+  const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
   const [errors, setErrors] = useState({
     isError: false,
     message: null,
   });
   useEffect(() => {
-    const getPopularMovie = async () => {
+    const getNowPlayingMovie = async () => {
       try {
         const response = await axios.get(
           `${
             import.meta.env.VITE_API_URL
-          }/3/movie/popular?language=en-US&page=1`,
+          }/3/movie/now_playing?language=en-US&page=1`,
           {
             headers: {
               Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,
@@ -22,7 +24,7 @@ function Home() {
           }
         );
         const { data } = response;
-        setPopularMovie(data?.results);
+        setNowPlayingMovie(data?.results);
         setErrors({ ...errors, isError: false });
       } catch (error) {
         if (axios.isAxiosError(error)) {
@@ -41,17 +43,15 @@ function Home() {
         });
       }
     };
-    getPopularMovie();
+    getNowPlayingMovie();
   }, []);
-  if (errors.isError) {
-    return <h1>{errors.message}</h1>;
-  }
 
-  if (popularMovie.length === 0) {
-    return <h1></h1>;
-  }
-
-  return <SwiperTest />;
+  return (
+    <>
+      <Slider data={nowPlayingMovie} />
+      <SwiperTest data={popularMovie} />
+    </>
+  );
 }
 
 export default Home;
