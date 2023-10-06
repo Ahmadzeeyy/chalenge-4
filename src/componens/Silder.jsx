@@ -3,7 +3,7 @@ import ExampleCarouselImage from "./ExampleCarouselImage";
 
 function Slider() {
   return (
-    <Carousel>
+    <Carousel className="mb-5">
       <Carousel.Item interval={1000}>
         <ExampleCarouselImage text="First slide" />
         <Carousel.Caption>

@@ -32,9 +32,8 @@ function NavbarMovie() {
                 <Form.Control
                   type="search"
                   placeholder="What do you want to watch ?"
-                  className="ms-5 px-4 rounded-pill bg-transparent"
+                  className="placeholder ms-5 px-4 rounded-pill bg-transparent"
                   aria-label="Search"
-                  style={{ "::placeholder": { color: "white" } }}
                 />
               </Form>
               <Form className="d-flex gap-3">
