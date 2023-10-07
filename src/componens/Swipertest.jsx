@@ -11,7 +11,8 @@ import { Container } from "react-bootstrap";
 
 function SwiperTest({ data }) {
   // eslint-disable-next-line no-unused-vars
-  const dislayed = data.slice(5, 20);
+  const dislayed = data.slice(0, 20);
+  // eslint-disable-next-line no-unused-vars
   const breakpoints = {
     // Ukuran layar kurang dari 576px
     576: {

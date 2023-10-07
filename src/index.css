@@ -1,4 +1,5 @@
-.placeholder::placeholder {
+.placeholder::placeholder,
+svg {
   color: #ffff !important;
   opacity: 1;
 }
@@ -7,11 +8,31 @@
   opacity: 1 !important;
   color: #ffff !important;
   cursor: text !important;
-  mix-blend-mode: lighten;
-}
-.placeholder:hover {
-  border: 2px solid white;
+  border: 2px solid white;  
 }
 .swiper-container {
   margin-bottom: 10rem;
+}
+.slidetr-title,
+.slider-desc {
+  mix-blend-mode: difference;
+  /* text-shadow: # 1px 0 10px; */
+}
+.icons-search {
+  width: 30px;
+  height: 30px;
+  right: 15px;
+  top: 4px;
+  /* mix-blend-mode : difference; */
+  background-color: transparent;
+  border: none;
+}
+.icons-watch {
+  width: 18px;
+  height: 18px;
+  left: 20px;
+  top: 21px;
+  color: white;
+  /* background-color : transparent; */
+  border: none;
 }
