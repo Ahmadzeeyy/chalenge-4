@@ -30,7 +30,7 @@ function SearchMovie() {
         const { data } = response;
         setGetMovie(data?.results);
       } catch (error) {
-        alert(error);
+        console.error(error)
       }
     };
     function handlesearch() {
