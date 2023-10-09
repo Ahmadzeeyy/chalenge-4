@@ -4,8 +4,6 @@ import { Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import MovieItem from "../componens/MovieItem";
 
-/* eslint-disable react/prop-types */
-
 function searchMovie({ data }) {
   const [searchResult, setSearchResult] = useState([]);
   const [searchParaams] = useSearchParams();
