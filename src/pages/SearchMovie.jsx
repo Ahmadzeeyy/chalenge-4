@@ -1,11 +1,12 @@
-/* eslint-disable no-unused-vars */
+/* eslint-disable react-hooks/rules-of-hooks */
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import MovieItem from "../componens/MovieItem";
 
 /* eslint-disable react/prop-types */
-function SearchMovie({ data }) {
+
+function searchMovie({ data }) {
   const [searchResult, setSearchResult] = useState([]);
   const [searchParaams] = useSearchParams();
   const query = searchParaams.get("query");
@@ -39,4 +40,4 @@ function SearchMovie({ data }) {
   );
 }
 
-export default SearchMovie;
+export default searchMovie;

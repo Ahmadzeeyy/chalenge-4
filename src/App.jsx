@@ -1,12 +1,11 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { useEffect, useState } from "react";
-import Home from "./pages/Home";
 import NavbarMovie from "./componens/NavbarMovie";
-// import Footer from "./componens/Footer";
 import DetailMovie from "./pages/DetailMovie";
+import SearchMovie from "./pages/SearchMovie";
+import Home from "./pages/Home";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import "./index.css";
-import SearchMovie from "./pages/searchMovie";
 function App() {
   const [popularMovie, setPopularMovie] = useState([]);
   const [errors, setErrors] = useState({
