@@ -2,7 +2,7 @@
 // import React from "react";
 import { Modal } from "react-bootstrap";
 import YouTube from "react-youtube";
-function ModalYoutube({ show, setShow }) {
+function ModalYoutube({ show, setShow, keyTube }) {
   const videoReady = (event) => {
     // access to player in all event handlers via event.target
     event.target.playVideo();
@@ -30,7 +30,7 @@ function ModalYoutube({ show, setShow }) {
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <YouTube videoId="GVPzGBvPrzw" opts={opts} onReady={videoReady} />
+          <YouTube videoId={keyTube} opts={opts} onReady={videoReady} />
         </Modal.Body>
       </Modal>
     </div>

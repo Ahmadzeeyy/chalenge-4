@@ -7,7 +7,6 @@ import DetailMovie from "./pages/DetailMovie";
 import axios from "axios";
 import "./index.css";
 import SearchMovie from "./pages/searchMovie";
-
 function App() {
   const [popularMovie, setPopularMovie] = useState([]);
   const [errors, setErrors] = useState({

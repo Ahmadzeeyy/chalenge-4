@@ -112,7 +112,7 @@ function Slider({ data }) {
           </Carousel.Item>
         ))}
       </Carousel>
-      <ModalYoutube show={show} setShow={setShow}></ModalYoutube>
+      <ModalYoutube show={show} setShow={setShow} keyTube={keyTrailer}></ModalYoutube>
     </div>
   );
 }

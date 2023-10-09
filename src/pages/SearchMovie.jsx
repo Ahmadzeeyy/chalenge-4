@@ -6,7 +6,7 @@ import { useSearchParams } from "react-router-dom";
 import MovieItem from "../componens/MovieItem";
 
 /* eslint-disable react/prop-types */
-function SearchMovie() {
+function SearchMovie({data}) {
   const [searchResult, setSearchResult] = useState([]);
   const [getMovie, setGetMovie] = useState([]);
   const [searchParaams] = useSearchParams();
@@ -42,10 +42,8 @@ function SearchMovie() {
     getMovies(1);
 
     handlesearch();
-    console.log(getMovie);
   }, [getMovie, query]);
 
-  console.log(getMovie);
   return (
     <>
       <Container className="container-search">
