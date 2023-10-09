@@ -1,23 +1,77 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { Card, Button } from "react-bootstrap";
 import ModalYoutube from "../componens/Modal";
+import axios from "axios";
 
-function DetailMovie({ popularMovie }) {
+function DetailMovie({ data }) {
   const [show, setShow] = useState(false);
   const [dataDetail, setDataDetail] = useState({});
   const { movieId } = useParams();
   useEffect(() => {
     const getDetailData = async (id) => {
-      const results = popularMovie.filter((item) => item.id == id);
+      const results = data.filter((item) => item.id == id);
       setDataDetail(...results);
     };
     getDetailData(movieId);
-  }, [movieId, popularMovie]);
-  {
-    console.log(dataDetail);
-  }
+  }, [movieId, data]);
+  const [slideItem, setSlideItem] = useState([]);
+  //modal
+  const [keyTrailer, setKeyTrailer] = useState("");
+  //get id movie
+  const [trailerMovie, setTrailerMovie] = useState([]);
+  const [errors, setErrors] = useState({
+    isError: false,
+    message: null,
+  });
+  const getTrailerMovie = async (id) => {
+    try {
+      const response = await axios.get(
+        `${import.meta.env.VITE_API_URL}/3/movie/${id}/videos`,
+        {
+          headers: {
+            Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,
+          },
+        }
+      );
+      const { data } = response;
+      setTrailerMovie(data?.results);
+      setErrors({ ...errors, isError: false });
+    } catch (error) {
+      if (axios.isAxiosError(error)) {
+        setErrors({
+          ...errors,
+          isError: true,
+          message: error?.response?.data?.statuse_message || error?.message,
+        });
+        return;
+      }
+      alert(error?.message);
+      setErrors({
+        ...error,
+        isError: true,
+        message: error?.message,
+      });
+    }
+    setShow(true);
+  };
+  useEffect(() => {
+    const getKey = () => {
+      const getTheKey = trailerMovie.filter((item) =>
+        item.type.includes("Trailer")
+      );
+      const slices = getTheKey.slice(0, 1);
+      const arraytkey = slices.map((item) => item.key);
+      const keyresult = arraytkey[0];
+      setKeyTrailer(keyresult);
+    };
+    setSlideItem(data.slice(11, 14));
+    if (trailerMovie) {
+      getKey();
+    }
+  }, [data, trailerMovie, keyTrailer]);
   return (
     <>
       <Card className="rounded-0 border-0 text-white ">
@@ -39,7 +93,7 @@ function DetailMovie({ popularMovie }) {
             variant="danger"
             className=" ps-4  py-3 rounded-pill position-relative position-relative"
             style={{ maxWidth: "10rem" }}
-            onClick={()=>setShow(true)}
+            onClick={() => getTrailerMovie(movieId)}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -59,7 +113,11 @@ function DetailMovie({ popularMovie }) {
           </Button>
         </Card.ImgOverlay>
       </Card>
-      <ModalYoutube show={show} setShow={setShow}></ModalYoutube>
+      <ModalYoutube
+        show={show}
+        setShow={setShow}
+        keyTube={keyTrailer}
+      ></ModalYoutube>
     </>
   );
 }

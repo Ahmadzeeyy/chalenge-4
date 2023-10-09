@@ -61,7 +61,7 @@ function App() {
         <Route path="/" element={<Home popularMovie={popularMovie} />}></Route>
         <Route
           path="/details/:movieId"
-          element={<DetailMovie popularMovie={popularMovie} />}
+          element={<DetailMovie data={popularMovie} />}
         ></Route>
         <Route
           path="/search"
