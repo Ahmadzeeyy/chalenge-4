@@ -1,3 +1,10 @@
+#root {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  height: auto;
+}
 .placeholder::placeholder,
 svg {
   color: #ffff !important;
@@ -8,7 +15,7 @@ svg {
   opacity: 1 !important;
   color: #ffff !important;
   cursor: text !important;
-  border: 2px solid white;  
+  border: 2px solid white;
 }
 .swiper-container {
   margin-bottom: 10rem;
@@ -35,4 +42,32 @@ svg {
   color: white;
   /* background-color : transparent; */
   border: none;
+}
+.swiper-container {
+  height: 80vh !important;
+  /* background-color : blue; */
+}
+.swiper {
+  z-index: 0 !important;
+}
+.container-search {
+  margin-top: 10rem;
+}
+footer {
+  position: absolute;
+  bottom: -30%;
+  width: 100%;
+}
+.modal-dialog {
+  display : flex;
+}
+.modal-content {
+  background-color: #232d3f !important;
+  overflow : none;
+
+}
+.modal-header,
+.modal-body,
+.modal-footer {
+  color: white;
 }

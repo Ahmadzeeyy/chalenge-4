@@ -9,7 +9,7 @@ function NavbarMovie() {
   const [inputItem, setInputItem] = useState("");
   function handleSubmit(e) {
     e.preventDefault();
-    let inputresult = `/search?query=${inputItem}&language=en-US&page=1`;
+    let inputresult = `/search?query=${inputItem}`;
     window.location.href = inputresult;
   }
   return (

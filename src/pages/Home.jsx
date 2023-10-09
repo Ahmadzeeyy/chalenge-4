@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
 import { useEffect, useState } from "react";
 import Slider from "../componens/Silder";
-import SwiperTest from "../componens/Swipertest";
+import PopularMoviee from "../componens/PopularMoviee";
 import axios from "axios";
 
-function Home({ popularMovie }) {
+function Home({ popularMovie, show, setShow }) {
   const [nowPlayingMovie, setNowPlayingMovie] = useState([]);
   const [errors, setErrors] = useState({
     isError: false,
@@ -48,8 +48,13 @@ function Home({ popularMovie }) {
 
   return (
     <>
-      <Slider data={nowPlayingMovie} />
-      <SwiperTest data={popularMovie} />
+      <Slider
+        data={nowPlayingMovie}
+        id={popularMovie.id}
+        show={show}
+        setShow={setShow}
+      />
+      <PopularMoviee data={popularMovie} />
     </>
   );
 }
