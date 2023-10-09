@@ -31,7 +31,7 @@ function PopularMoviee({ data }) {
         {dislayed.map((item) => (
           <Col
             key={item.id}
-            className="d-flex justify-content-center mt-4 w-100 border"
+            className="d-flex justify-content-center mt-4 w-100"
           >
             <MovieItem
               title={item.title}
