@@ -6,43 +6,21 @@ import { useSearchParams } from "react-router-dom";
 import MovieItem from "../componens/MovieItem";
 
 /* eslint-disable react/prop-types */
-function SearchMovie({data}) {
+function SearchMovie({ data }) {
   const [searchResult, setSearchResult] = useState([]);
-  const [getMovie, setGetMovie] = useState([]);
+  const [getMovie, setGetMovie] = useState(data);
   const [searchParaams] = useSearchParams();
   const query = searchParaams.get("query");
-  const page = searchParaams.get("page");
-  const language = searchParaams.get("language");
+
   useEffect(() => {
-    const getMovies = async (page) => {
-      try {
-        const response = await axios.get(
-          `${import.meta.env.VITE_API_URL}3/discover/movie`,
-          {
-            headers: {
-              Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,
-            },
-          }
-        );
-        // if (page < 6) {
-        //   getMovies(page + 1);
-        // }
-        const { data } = response;
-        setGetMovie(data?.results);
-      } catch (error) {
-        console.error(error)
-      }
-    };
     function handlesearch() {
       let searchItem = query.toLowerCase();
       setSearchResult(
         getMovie.filter((item) => item.title.toLowerCase().includes(searchItem))
       );
     }
-    getMovies(1);
-
     handlesearch();
-  }, [getMovie, query]);
+  }, [query]);
 
   return (
     <>
