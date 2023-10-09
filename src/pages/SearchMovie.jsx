@@ -1,5 +1,4 @@
 /* eslint-disable no-unused-vars */
-import axios from "axios";
 import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
@@ -8,7 +7,6 @@ import MovieItem from "../componens/MovieItem";
 /* eslint-disable react/prop-types */
 function SearchMovie({ data }) {
   const [searchResult, setSearchResult] = useState([]);
-  const [getMovie, setGetMovie] = useState(data);
   const [searchParaams] = useSearchParams();
   const query = searchParaams.get("query");
 
@@ -16,11 +14,11 @@ function SearchMovie({ data }) {
     function handlesearch() {
       let searchItem = query.toLowerCase();
       setSearchResult(
-        getMovie.filter((item) => item.title.toLowerCase().includes(searchItem))
+        data.filter((item) => item.title.toLowerCase().includes(searchItem))
       );
     }
     handlesearch();
-  }, [query]);
+  }, [data, query]);
 
   return (
     <>
@@ -33,7 +31,6 @@ function SearchMovie({ data }) {
                 id={item.id}
                 imageURL={import.meta.env.VITE_API_IMAGE_URL + item.poster_path}
               />
-              {/* {console.log(item.id)} */}
             </Col>
           ))}
         </Row>
