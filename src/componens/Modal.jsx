@@ -17,7 +17,6 @@ function ModalYoutube({ show, setShow, keyTube }) {
 
   return (
     <div>
-      {" "}
       <Modal
         show={show}
         onHide={() => setShow(false)}
@@ -26,7 +25,7 @@ function ModalYoutube({ show, setShow, keyTube }) {
       >
         <Modal.Header closeButton>
           <Modal.Title id="example-custom-modal-styling-title">
-            Custom Modal Styling
+            Trailer Movie
           </Modal.Title>
         </Modal.Header>
         <Modal.Body>
