@@ -74,7 +74,7 @@ function DetailMovie({ data }) {
   }, [data, trailerMovie, keyTrailer]);
   return (
     <>
-      <Card className="rounded-0 border-0 text-white ">
+      <Card className="rounded-0 text-white ">
         <Card.Img
           src={import.meta.env.VITE_API_IMAGE_URL + dataDetail.backdrop_path}
           alt="Card image"
