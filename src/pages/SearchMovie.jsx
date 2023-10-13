@@ -3,21 +3,66 @@ import { useEffect, useState } from "react";
 import { Col, Container, Row } from "react-bootstrap";
 import { useSearchParams } from "react-router-dom";
 import MovieItem from "../componens/MovieItem";
-
-function searchMovie({ data }) {
+import axios from "axios";
+function searchMovie() {
+  const [searchData, setSearchData] = useState([]);
   const [searchResult, setSearchResult] = useState([]);
   const [searchParaams] = useSearchParams();
   const query = searchParaams.get("query");
+  const [errors, setErrors] = useState({
+    isError: false,
+    message: null,
+  });
 
   useEffect(() => {
+    const getSearchMovie = async () => {
+      try {
+        const response = await axios.get(
+          `${import.meta.env.VITE_API_URL}/3/search/movie?query=${query}`,
+          {
+            headers: {
+              Authorization: `Bearer ${import.meta.env.VITE_API_AUTH_TOKEN}`,
+            },
+          }
+        );
+        const { data } = response;
+        setSearchData(data?.results);
+        setErrors({ ...errors, isError: false });
+      } catch (error) {
+        if (axios.isAxiosError(error)) {
+          setErrors({
+            ...errors,
+            isError: true,
+            message: error?.response?.data?.statuse_message || error?.message,
+          });
+          return;
+        }
+        alert(error?.message);
+        setErrors({
+          ...error,
+          isError: true,
+          message: error?.message,
+        });
+      }
+    };
+    getSearchMovie();
     function handlesearch() {
       let searchItem = query.toLowerCase();
       setSearchResult(
-        data.filter((item) => item.title.toLowerCase().includes(searchItem))
+        searchData.filter((item) =>
+          item.title.toLowerCase().includes(searchItem)
+        )
       );
     }
     handlesearch();
-  }, [data, query]);
+  }, [ query, searchData]);
+  if (errors.isError) {
+    return <h1>{errors.message}</h1>;
+  }
+
+  if (searchData.length === 0) {
+    return <h1>Movie Not Found</h1>;
+  }
 
   return (
     <>

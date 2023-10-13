@@ -36,7 +36,7 @@ function PopularMoviee({ data }) {
             <MovieItem
               title={item.title}
               overview={item.overview}
-              imageURL={import.meta.env.VITE_API_IMAGE_URL + item.poster_path}
+              imageURL={import.meta.env.VITE_API_POSTER_URL + item.poster_path}
               id={item.id}
             ></MovieItem>
           </Col>
