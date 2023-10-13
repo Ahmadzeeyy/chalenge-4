@@ -102,7 +102,7 @@ function Slider({ data }) {
               </Button>
             </div>
             <Image
-              src={import.meta.env.VITE_API_POSTER_URL + item.backdrop_path}
+              src={import.meta.env.VITE_API_IMAGE_URL + item.backdrop_path}
               text="First slide"
               className="object-fit-cover w-100"
               style={{

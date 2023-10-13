@@ -27,7 +27,8 @@ function PopularMoviee({ data }) {
   };
   return (
     <Container className="my-5 ">
-      <Row className=" align-items-center border h-100">
+      <h2>Popular Movie</h2>
+      <Row className=" align-items-center h-100">
         {dislayed.map((item) => (
           <Col
             key={item.id}

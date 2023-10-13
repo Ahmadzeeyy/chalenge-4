@@ -55,7 +55,7 @@ function searchMovie() {
       );
     }
     handlesearch();
-  }, [ query, searchData]);
+  }, [query, searchData]);
   if (errors.isError) {
     return <h1>{errors.message}</h1>;
   }
@@ -66,15 +66,22 @@ function searchMovie() {
 
   return (
     <>
-      <Container className="container-search">
+      <Container className="my-5 mt-5">
         <h1> result from {'"' + query + '"'}</h1>
-        <Row>
+        <Row className=" align-items-center h-100">
           {searchResult.map((item) => (
-            <Col key={item.id}>
+            <Col
+              key={item.id}
+              className="d-flex justify-content-center mt-4 w-100"
+            >
               <MovieItem
+                title={item.title}
+                overview={item.overview}
+                imageURL={
+                  import.meta.env.VITE_API_POSTER_URL + item.poster_path
+                }
                 id={item.id}
-                imageURL={import.meta.env.VITE_API_IMAGE_URL + item.poster_path}
-              />
+              ></MovieItem>
             </Col>
           ))}
         </Row>
